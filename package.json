@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "start": "tsc && node dist/index.js",
+    "dev": "nodemon",
     "test": "test"
   },
   "repository": {
@@ -23,6 +24,8 @@
   },
   "homepage": "https://github.com/i-gk/team-lions#readme",
   "devDependencies": {
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
     "tslint": "^6.0.0",
     "typescript": "^3.8.3"
   },
