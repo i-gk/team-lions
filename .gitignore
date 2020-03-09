@@ -1,0 +1,4 @@
+# ignored folders
+
+dist/
+node_modules/ 
