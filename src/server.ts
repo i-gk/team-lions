@@ -1,12 +1,20 @@
-import express from 'express'
+import express from 'express';
+import {  ApolloServer } from 'apollo-server-express';
 
-const APP_SERVER = express();
+import typeDefs from './typeDefs';
+import resolvers from './resolvers';
+
+const APP = express();
+const SERVER: ApolloServer = new ApolloServer({
+    typeDefs,
+    resolvers
+});
 
 export default (): void => {
 
-    APP_SERVER.get('/', (req, res) => res.send('Hola!! 🙋🏻‍♂️'));
 
-    APP_SERVER.listen(
+    SERVER.applyMiddleware({app: APP, path: '/'});
+    APP.listen(
         { port: 3000 },
         (): void => console.log(`\n 🚀 running on port :: 3000`));
 
