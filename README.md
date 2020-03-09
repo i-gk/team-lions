@@ -37,6 +37,9 @@ Create an api server to provide:
 
 ## Tech Stack
 
-- The server will be powered by `Graphql`
+- The server will be `Apollo-Express` powered
 
-- `MongoDB` will do cover the data storage
+- The server API layer will be `Graphql`
+
+- `MongoDB` will do the data storage
+
