@@ -2,7 +2,8 @@ import { gql } from 'apollo-server-express';
 
 export default gql `
     extend type Query {
-        players: [Player]!
+        players: [Player]!,
+        player(id: String!): Player
     }
 
     type Player {
