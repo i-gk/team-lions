@@ -9,5 +9,11 @@ export default {
         player: (root, args, context, info) => {
             return Player.findOne({ id: args.id })
         }
+    },
+
+    Mutation: {
+        addPlayer: (root, args, context, info) => {
+            
+        }
     }
 }

@@ -1,5 +1,6 @@
 import { gql } from 'apollo-server-express';
 import player from './player';
+import team from './team';
 
 const root = gql `
     type Query {
@@ -17,5 +18,6 @@ const root = gql `
 
 export default [
     root,
-    player
+    player,
+    team
 ]

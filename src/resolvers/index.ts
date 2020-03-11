@@ -1,4 +1,5 @@
 import player from './player';
+import team from './team';
 
 const greeting = {
     Query: {
@@ -10,5 +11,6 @@ const greeting = {
 
 export default [
     greeting,
-    player
+    player,
+    team
 ]

@@ -1,9 +1,14 @@
 import { gql } from 'apollo-server-express';
 
-export default gql `
+export default gql`
     extend type Query {
         players: [Player]!,
-        player(id: String!): Player
+        player(id: String!): Player!
+    }
+
+    extend type Mutation {
+        addPlayer(number: String!, firstName: String!, lasnName: String!, phone: String!, battingStyle: String!, 
+            bowlingStyle: String!, playingRole: String!, birthday: String!, teamId: String!): Player
     }
 
     type Player {
