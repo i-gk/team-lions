@@ -8,7 +8,8 @@
     "watch": ["src/"],
     "exec": "ts-node ./src/index.ts",
     "env": {
-      "NODE_ENV": "development"
+      "NODE_ENV": "development",
+      "PORT": 3000
     },
     "ext": "js,json,ts"
   }
