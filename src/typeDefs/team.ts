@@ -1,24 +1,30 @@
-import { gql } from 'apollo-server-express';
+import { gql } from "apollo-server-express";
 
-export default gql `
-    extend type Mutation {
-        addNewTeam(name: String!, startYear: String!, description: String, websites: [String], 
-            captainId: String!, viceCaptainId: String): Team
-    }
+export default gql`
+  extend type Mutation {
+    addNewTeam(
+      name: String!
+      startYear: String!
+      description: String
+      websites: [String]
+      captainId: String!
+      viceCaptainId: String
+    ): Team
+  }
 
-    type Team {
-        teamId: String,
-        name: String,
-        startYear: String,
-        description: String,
-        websites: [String],
-        captain: capViceCap,
-        viceCaptain: capViceCap
-    }
+  type Team {
+    teamId: String
+    name: String
+    startYear: String
+    description: String
+    websites: [String]
+    captain: capViceCap
+    viceCaptain: capViceCap
+  }
 
-    type capViceCap {
-            playerid: String!,
-            firstName: String,
-            lasnName: Int
-    }
-`
+  type capViceCap {
+    playerid: String!
+    firstName: String
+    lasnName: Int
+  }
+`;

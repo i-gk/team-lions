@@ -1,16 +1,12 @@
-import player from './player';
-import team from './team';
+import player from "./player";
+import team from "./team";
 
 const greeting = {
-    Query: {
-        greeting: (): String => {
-            return 'Hola! 🙋🏻‍♂️'
-        }
+  Query: {
+    greeting: (): String => {
+      return "Hola! 🙋🏻‍♂️";
     }
-}
+  }
+};
 
-export default [
-    greeting,
-    player,
-    team
-]
+export default [greeting, player, team];
