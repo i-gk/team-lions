@@ -43,3 +43,15 @@ Create an api server to provide:
 
 - `MongoDB` will do the data storage
 
+## Dev Env setup
+- clone and run npm install from root 
+
+### Setting mongodb
+- create following environment variables for mongodb connection 
+    - `MONGO_USERNAME`
+    - `MONGO_PSWD`
+    - `MONGO_IP`
+    - `MONGO_PORT`
+    - `MONGO_DB_NAME`
+
+- run `npm run dev` from root to launch watch server
