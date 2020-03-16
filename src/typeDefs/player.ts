@@ -10,7 +10,7 @@ export default gql`
     addPlayer(
       number: String!
       firstName: String!
-      lasnName: String!
+      lastName: String!
       phone: String!
       battingStyle: String!
       bowlingStyle: String!
