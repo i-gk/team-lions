@@ -24,7 +24,7 @@ export default async (): Promise<void> => {
   try {
     await mongoose.connect(
       `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/${MONGO_DB_NAME}`,
-      { useNewUrlParser: true, useUnifiedTopology: true }
+      { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
     );
 
     SERVER.applyMiddleware({ app: APP, path: "/" });
