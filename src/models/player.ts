@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 const playerSchema = new mongoose.Schema({
+  playerId: String,
   number: String,
   firstName: String,
   lasnName: String,
-  playerid: String,
+  lastName: String,
   phone: String,
   battingStyle: String,
   bowlingStyle: String,
@@ -12,7 +13,7 @@ const playerSchema = new mongoose.Schema({
   birthday: String,
   teams: [
     {
-      id: String,
+      teamId: String,
       name: String
     }
   ]

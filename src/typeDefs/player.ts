@@ -18,13 +18,29 @@ export default gql`
       birthday: String!
       teamId: String!
     ): Player
+
+    updatePlayer(
+      playerId: String!
+      firstName: String
+      lastName: String
+      phone: String
+      battingStyle: String
+      bowlingStyle: String
+      playingRole: String
+      birthday: String
+    ): Player
+
+    addNewTeamForPlayer(
+      playerid: String!
+      teamId: String!
+    ): Player
   }
 
   type Player {
     number: String
     firstName: String
     lasnName: String
-    id: String
+    playerId: String
     phone: String
     battingStyle: String
     bowlingStyle: String
