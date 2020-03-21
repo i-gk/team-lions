@@ -1,4 +1,5 @@
 import { Player, Team } from "../models";
+import { PlayerService } from "../services";
 
 export default {
   Query: {
@@ -12,31 +13,12 @@ export default {
   },
 
   Mutation: {
-    addPlayer: async (root, args, context, info) => {
-      let team = await Team.findOne({ teamId: args.teamId }, {_id: 0, teamId: 1, name: 1});
-
-      let { ["teamId"]: _, ..._args} = args;
-      let playerId = args.number.concat("_").concat(args.firstName).concat("_").concat(args.lastName).toLowerCase();
-
-      let constructedTeamData = {
-        playerId,
-        ..._args,
-        teams: [team]
-      }
-
-      console.log(constructedTeamData);
-      return Player.create(constructedTeamData);
+    addPlayer: async (root, { teamId, ...playerInfo }, context, info) => {
+      return PlayerService.addNewPlayer(teamId, playerInfo);
     },
 
-    updatePlayer: async (root, args, context, info) => {
-      let { ["playerId"]: playerId, ...newData}: any = args;
-      
-      // console.log(newData);
-      if (Object.keys(newData).length > 0) {
-        return Player.findOneAndUpdate({playerId}, newData, {new: true});
-      }
-
-      console.error('No new records received for an update');
+    updatePlayer: async (root, { playerId, ...playerInfo }, context, info) => {
+      return PlayerService.updatePlayer(playerId, playerInfo);
     },
 
     addNewTeamForPlayer: async (root, args, context, info) => {}
