@@ -1,0 +1,38 @@
+{
+  "name": "team-lions",
+  "version": "1.0.0",
+  "description": "Team Lions 2020 information",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "dev": "nodemon",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i-gk/team-lions.git"
+  },
+  "keywords": [
+    "GraphQL",
+    "MongoDB",
+    "Typescript"
+  ],
+  "author": "Gayan Kumarage",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/i-gk/team-lions/issues"
+  },
+  "homepage": "https://github.com/i-gk/team-lions#readme",
+  "devDependencies": {
+    "@types/mongoose": "^5.7.4",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.11.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.3"
+  }
+}

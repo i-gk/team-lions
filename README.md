@@ -1,16 +1,19 @@
 # Intro
+
 This is a pet project to collect the information on MKE Team Lions 2020 season performance.
 
 ## Highlevel Features
+
 Create an api server to provide:
+
 ```
 1. Manage player records
 
-    (a) Insert player details ❌
-    
-    (b) Retrieve player details ❌
+    (a) Insert player details ✅
 
-    (c) Update player details ❌
+    (b) Retrieve player details ✅
+
+    (c) Update player details ✅
 `
 2. Manage team info
 
@@ -37,6 +40,24 @@ Create an api server to provide:
 
 ## Tech Stack
 
-- The server will be powered by `Graphql`
+- The server will be `Apollo-Express` powered
 
-- `MongoDB` will do cover the data storage
+- The server API layer will be `Graphql`
+
+- `MongoDB` will do the data storage
+
+## Dev Env setup
+
+- clone and run npm install from root
+
+### Setting mongodb
+
+- create following environment variables for mongodb connection
+
+  - `MONGO_USERNAME`
+  - `MONGO_PSWD`
+  - `MONGO_IP`
+  - `MONGO_PORT`
+  - `MONGO_DB_NAME`
+
+- run `npm run dev` from root to launch watch server
