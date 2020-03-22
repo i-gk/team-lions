@@ -7,8 +7,9 @@ export default {
       return Player.find({});
     },
 
-    player: (root, args, context, info) => {
-      return Player.findOne({ id: args.id });
+    player: (root, { playerId }, context, info) => {
+      console.log(playerId);
+      return Player.findOne({ playerId });
     }
   },
 
@@ -21,6 +22,6 @@ export default {
       return PlayerService.updatePlayer(playerId, playerInfo);
     },
 
-    addNewTeamForPlayer: async (root, args, context, info) => {}
+    addNewTeamForPlayer: async (root, { args }, context, info) => {}
   }
 };

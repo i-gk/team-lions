@@ -3,7 +3,7 @@ import { gql } from "apollo-server-express";
 export default gql`
   extend type Query {
     players: [Player]!
-    player(id: String!): Player!
+    player(playerId: String!): Player!
   }
 
   extend type Mutation {
@@ -30,16 +30,13 @@ export default gql`
       birthday: String
     ): Player
 
-    addNewTeamForPlayer(
-      playerid: String!
-      teamId: String!
-    ): Player
+    addNewTeamForPlayer(playerid: String!, teamId: String!): Player
   }
 
   type Player {
     number: String
     firstName: String
-    lasnName: String
+    lastName: String
     playerId: String
     phone: String
     battingStyle: String
@@ -50,7 +47,7 @@ export default gql`
   }
 
   type TeamInfo {
-    id: String
+    teamId: String
     name: String
   }
 `;

@@ -4,7 +4,6 @@ const playerSchema = new mongoose.Schema({
   playerId: String,
   number: String,
   firstName: String,
-  lasnName: String,
   lastName: String,
   phone: String,
   battingStyle: String,
