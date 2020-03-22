@@ -30,7 +30,7 @@ export default gql`
       birthday: String
     ): Player
 
-    addNewTeamForPlayer(playerid: String!, teamId: String!): Player
+    addNewTeamForPlayer(playerId: String!, teamId: String!): Player
   }
 
   type Player {

@@ -31,7 +31,7 @@ class PlayerService {
         teams: [team]
       };
 
-      console.log(`New player data: ${JSON.stringify(newPlayerData)}`);
+      console.debug(`New player data: ${JSON.stringify(newPlayerData)}`);
       return Player.create(newPlayerData);
     } catch (error) {
       console.error(error.message);
@@ -53,9 +53,30 @@ class PlayerService {
     console.log("No new records received for an update");
   }
 
+  /**
+   * Fetched team info by teamId and update the information on the player
+   *
+   * @param playerId player id that should be updating
+   * @param teamId new team id
+   */
+  public async addNewTeamForPlayer(playerId: string, teamId: string) {
+    try {
+      let team = await this.getTeamInfo(teamId);
+      return Player.findOneAndUpdate(
+        { playerId },
+        { $push: { teams: team } },
+        { new: true, upsert: true }
+      );
+    } catch (err) {
+      console.error(err.message);
+      return Promise.reject(err.message);
+    }
+  }
+
   private async getTeamInfo(teamId: string) {
     let team = await Team.findOne({ teamId }, { _id: 0, teamId: 1, name: 1 });
-    console.log(team);
+    console.debug(`getTeamInfo: Found team: ${team}`);
+
     if (team !== null) {
       return team;
     }
@@ -64,7 +85,6 @@ class PlayerService {
   }
 
   private createNewPlayerId({ playerId, firstName, lastName }): string {
-    console.log("createNewPlayerId");
     if (
       Number.isInteger(Number.parseInt(playerId)) &&
       firstName &&
