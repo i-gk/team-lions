@@ -73,6 +73,7 @@ class PlayerService {
     }
   }
 
+  // TODO this should be served from teams service
   private async getTeamInfo(teamId: string) {
     let team = await Team.findOne({ teamId }, { _id: 0, teamId: 1, name: 1 });
     console.debug(`getTeamInfo: Found team: ${team}`);
@@ -105,6 +106,7 @@ class PlayerService {
   }
 }
 
+// TODO these should be in separate exception classes
 // ---- Error Classes ---
 class InvalidPlayerDataError extends Error {
   constructor(msg) {
