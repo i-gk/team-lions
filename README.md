@@ -17,11 +17,11 @@ Create an api server to provide:
 `
 2. Manage team info
 
-    (a) Insert team information ❌
+    (a) Insert team information ✅
 
-    (b) Retrieve team details ❌
+    (b) Retrieve team details ✅
 
-    (c) Update team details ❌
+    (c) Update team details ✅
 
 3. Track matches
 
