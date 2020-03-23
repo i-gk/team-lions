@@ -4,6 +4,31 @@ class PlayerService {
   private readonly NUMBER_CONCAT_ELEMENT = "_";
 
   /**
+   * Finds player information for the given playerId
+   *
+   * @param playerId playerId to retrieve data. Returns error if this is null or empty
+   * @param fields required data fields in the response
+   */
+  public async getPlayer(playerId: string, fields: any) {
+    if (playerId && playerId.length > 0) {
+      let playerInfo = await Player.findOne({ playerId }, fields);
+
+      if (playerInfo == null) {
+        throw new InvalidPlayerIdError(
+          `No record found for playerId: ${playerId}`
+        );
+      }
+
+      console.debug(`Player information for id: ${playerId} - ${playerInfo}`);
+      return playerInfo;
+    }
+
+    throw new InvalidPlayerDataError(
+      `Invalid value received for playerId: ${playerId}`
+    );
+  }
+
+  /**
    * Add new player for a given team and returns the player infromation
    * An error will be thrown if:
    *    1. provided team id is invalid
@@ -115,6 +140,12 @@ class InvalidPlayerDataError extends Error {
 }
 
 class InvalidTeamError extends Error {
+  constructor(msg) {
+    super(msg);
+  }
+}
+
+class InvalidPlayerIdError extends Error {
   constructor(msg) {
     super(msg);
   }

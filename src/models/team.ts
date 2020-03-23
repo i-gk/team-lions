@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
 
 const teamSchema = new mongoose.Schema({
-  teamId: String,
-  name: String,
+  teamId: { type: String, unique: true },
+  name: { type: String, unique: true },
   startYear: String,
   description: String,
   websites: [String],
   captain: {
-    playerid: String,
+    playerId: String,
     firstName: String,
-    lasnName: String
+    lastName: String
   },
   viceCaptain: {
-    playerid: String,
+    playerId: String,
     firstName: String,
-    lasnName: String
+    lastName: String
   }
 });
 
